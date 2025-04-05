@@ -1,5 +1,3 @@
-// src/data/BrainrotList.ts
-
 import img1 from '../assets/png/img-1.png';
 import img2 from '../assets/png/img-2.png';
 import img3 from '../assets/png/img-3.png';
@@ -31,22 +29,7 @@ import img28 from '../assets/png/img-28.png';
 import img29 from '../assets/png/img-29.png';
 import img30 from '../assets/png/img-30.png';
 
-export interface Meme {
-  id: number;
-  name: string;
-  image: string;
-  likes: number;
-}
-
-const brainrotImages: string[] = [
-  img1, img2, img3, img4, img5,
-  img6, img7, img8, img9, img10,
-  img11, img12, img13, img14, img15,
-  img16, img17, img18, img19, img20,
-  img21, img22, img23, img24, img25,
-  img26, img27, img28, img29, img30,
-];
-
+// Map the images to an object for easy reference by id
 export const memeImages = {
   1: img1,
   2: img2,
@@ -80,12 +63,20 @@ export const memeImages = {
   30: img30,
 };
 
+// Convert memeImages object to an array of Meme objects
+export interface Meme {
+  id: number;
+  name: string;
+  likes: number;
+}
 
-const BrainrotList: Meme[] = brainrotImages.map((img, index) => ({
-  id: index + 1,
-  name: `Brainrot ${index + 1}`,
-  image: img,
-  likes: 0,
-}));
+const memeList: Meme[] = Object.keys(memeImages).map((key) => {
+  const id = Number(key); 
+  return {
+    id,
+    name: `Brainrot ${id}`,
+    likes: 0,
+  };
+});
 
-export default BrainrotList;
+export default memeList;
