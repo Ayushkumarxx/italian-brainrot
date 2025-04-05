@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useMemeStore } from "../utils/store";
 import { FiChevronRight } from "react-icons/fi";
 import Exports from "../utils/export";
-import { Meme } from "../utils/brainrotList";
+import { Meme , memeImages } from "../utils/brainrotList";
+
 
 interface PlusOneAnimation {
   id: number;
@@ -134,7 +135,7 @@ const Home: React.FC = () => {
               className="relative w-[250px] h-[250px] max-lg:w-[220px] max-lg:h-[220px] max-md:w-[200px] max-md:h-[200px] max-sm:w-[160px] max-sm:h-[160px] bg-black border-4 border-neutral-700 rounded-xl overflow-hidden cursor-pointer"
             >
               <img
-                src={meme.image}
+                src={memeImages[meme.id as keyof typeof memeImages]}
                 alt={`Meme ${meme.id}`}
                 className="w-full h-full object-cover"
               />

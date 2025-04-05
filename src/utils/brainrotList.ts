@@ -47,6 +47,38 @@ const brainrotImages: string[] = [
   img26, img27, img28, img29, img30,
 ];
 
+export const memeImages = {
+  1: img1,
+  2: img2,
+  3: img3,
+  4: img4,
+  5: img5,
+  6: img6,
+  7: img7,
+  8: img8,
+  9: img9,
+  10: img10,
+  11: img11,
+  12: img12,
+  13: img13,
+  14: img14,
+  15: img15,
+  16: img16,
+  17: img17,
+  18: img18,
+  19: img19,
+  20: img20,
+  21: img21,
+  22: img22,
+  23: img23,
+  24: img24,
+  25: img25,
+  26: img26,
+  27: img27,
+  28: img28,
+  29: img29,
+  30: img30,
+};
 
 
 const BrainrotList: Meme[] = brainrotImages.map((img, index) => ({
