@@ -117,7 +117,7 @@ const Home: React.FC = () => {
       ) : (
         <motion.div
           layout
-          className="flex flex-wrap justify-center gap-8 max-md:gap-2.5 mt-10"
+          className="flex flex-wrap justify-center gap-8 max-md:gap-2.5 mt-10 mb-10"
         >
           {sortedMemes.map((meme, i) => (
             <motion.div
