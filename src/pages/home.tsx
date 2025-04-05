@@ -52,7 +52,9 @@ const Home: React.FC = () => {
     }
   }, [memes]);
 
+
   const handleVote = async (index: number) => {
+    console.log(sortedMemes)
     const meme = sortedMemes[index];
     if (!meme) return;
 
