@@ -117,7 +117,7 @@ const Home: React.FC = () => {
       ) : (
         <motion.div
           layout
-          className="flex flex-wrap justify-center gap-8 max-md:gap-4 mt-10"
+          className="flex flex-wrap justify-center gap-8 max-md:gap-2.5 mt-10"
         >
           {sortedMemes.map((meme, i) => (
             <motion.div
@@ -132,7 +132,7 @@ const Home: React.FC = () => {
                 damping: 20,
                 layout: { delay: 0.2, duration: 0.4 }
               }}
-              className="relative w-[250px] h-[250px] max-lg:w-[220px] max-lg:h-[220px] max-md:w-[200px] max-md:h-[200px] max-sm:w-[160px] max-sm:h-[160px] bg-black border-4 border-neutral-700 rounded-xl overflow-hidden cursor-pointer"
+              className="relative w-[250px] h-[250px] max-lg:w-[220px] max-lg:h-[220px] max-md:w-[200px] max-md:h-[200px] max-sm:w-[150px] max-sm:h-[150px] bg-black border-4 border-neutral-700 rounded-xl overflow-hidden cursor-pointer"
             >
               <img
                 src={memeImages[meme.id as keyof typeof memeImages]}
