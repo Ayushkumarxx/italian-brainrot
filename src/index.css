@@ -32,7 +32,7 @@ body {
     #0a0a0a 0,
     #0a0a0a 50%
   );
-  height: 100vh;
+
   scroll-behavior: smooth;
   user-select: none;
 }
