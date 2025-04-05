@@ -1,4 +1,3 @@
-import Exports from "./export";
 import img1 from '../assets/png/img-1.png'
 import img2 from '../assets/png/img-2.png'
 import img3 from '../assets/png/img-3.png'
