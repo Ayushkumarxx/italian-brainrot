@@ -5,7 +5,7 @@ const Navbar: React.FC = () => {
     <nav className="max-w-[950px] mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
       {/* Logo */}
       <div className="text-white text-2xl font-extrabold px-3 py-2 border border-dashed border-gray-500 rounded-lg">
-        BETRUPPE
+        BRAINROT
       </div>
 
       {/* Line */}
