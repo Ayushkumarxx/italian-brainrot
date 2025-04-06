@@ -150,9 +150,9 @@ const Versus: React.FC = () => {
       )}
 
       {/* VS Text */}
-      <div className="text-3xl font-bold text-white bg-gradient-to-r from-purple-500 to-pink-500 px-4 py-1 rounded-full shadow">
+      <div className="text-3xl font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-600 px-4 py-1 rounded-full shadow-lg shadow-cyan-500/30">
         VS
-      </div>
+     </div>
 
       {/* Meme 2 */}
       {meme2 && (
