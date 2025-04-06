@@ -13,18 +13,19 @@ const Versus: React.FC = () => {
   const [memes, setMemes] = useState<MemeData[]>([]);
   const [tempLikes, setTempLikes] = useState<Record<number, number>>({});
   const [plusOnes, setPlusOnes] = useState<Record<number, any[]>>({});
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    // Fetch versus data from the store on initial render
     const init = async () => {
+      setIsLoading(true); // Set loading to true while fetching data
       await fetchVersus();
+      setIsLoading(false); // Set loading to false once the data is fetched
     };
     init();
   }, [fetchVersus]);
 
   useEffect(() => {
     if (versus) {
-      // Update the memes state once the versus data is fetched
       setMemes([
         { id: versus.id1, likes: versus.like1 },
         { id: versus.id2, likes: versus.like2 },
@@ -36,7 +37,6 @@ const Versus: React.FC = () => {
     const meme = memes[index];
     if (!meme) return;
 
-    // Trigger the local vote animation
     const newPlus = {
       id: Date.now(),
       x: Math.random() * 40 - 20,
@@ -56,15 +56,14 @@ const Versus: React.FC = () => {
       }));
     }, 700);
 
-    // Update the temporary likes count
     setTempLikes((prev) => ({
       ...prev,
       [meme.id]: (prev[meme.id] || 0) + 1,
     }));
 
-    // Pass 1 or 2 depending on the meme clicked
     voteMeme(index === 0 ? 1 : 2);
   };
+
   const meme1 = memes[0];
   const meme2 = memes[1];
   const meme1Votes = meme1 ? meme1.likes + (tempLikes[meme1.id] || 0) : 0;
@@ -73,15 +72,25 @@ const Versus: React.FC = () => {
   const isTie = meme1Votes === meme2Votes;
 
   return (
-    <div className="w-full md:w-[80%] mx-auto flex justify-between items-center max-sm:flex-col py-10 mb-10">
-      {/* Meme 1 */}
+    <div className="w-full md:w-[80%] gap-2 mx-auto flex justify-between items-center max-sm:flex-col py-10 mb-10">
+      {/* Show loading spinner if data is being fetched */}
+      {isLoading ? (
+        <div className="flex justify-center items-center h-[300px]">
+          <motion.div
+            className="w-8 h-8 rounded-full bg-white"
+            animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
+            transition={{ duration: 1.2, repeat: Infinity }}
+          />
+        </div>
+      ) : (
+        <>
       {meme1 && (
         <motion.div
           layout
           onClick={() => handleVote(0)}
           whileTap={{ scale: 0.95 }}
           animate={{ scale: 1 }}
-          className={`relative w-[220px] sm:w-[250px] h-[220px] sm:h-[250px] rounded-xl overflow-hidden cursor-pointer border-4 ${
+          className={`relative w-[200px] sm:w-[250px] h-[200px] sm:h-[250px] rounded-xl overflow-hidden cursor-pointer border-4 ${
             !isTie && meme1Votes > meme2Votes
               ? "border-green-400"
               : "border-neutral-700"
@@ -149,7 +158,7 @@ const Versus: React.FC = () => {
           onClick={() => handleVote(1)}
           whileTap={{ scale: 0.95 }}
           animate={{ scale: 1 }}
-          className={`relative w-[220px] sm:w-[250px] h-[220px] sm:h-[250px] rounded-xl overflow-hidden cursor-pointer border-4 ${
+          className={`relative w-[200px] sm:w-[250px] h-[200px] sm:h-[250px] rounded-xl overflow-hidden cursor-pointer border-4 ${
             !isTie && meme2Votes > meme1Votes
               ? "border-green-400"
               : "border-neutral-700"
@@ -204,7 +213,11 @@ const Versus: React.FC = () => {
             )}
           </AnimatePresence>
         </motion.div>
-      )}
+      
+      )}  
+      </>
+    )}
+
     </div>
   );
 };
