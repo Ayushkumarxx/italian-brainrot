@@ -20,7 +20,7 @@ const Leaderboard: React.FC = () => {
 
   return (
     <div className="p-4 mx-auto text-white bg-[#0a0a0a]  max-w-[900px]">
-      <h2 className="text-3xl font-bold mb-6 text-white text-center sm:text-2xl">
+      <h2 className="text-2xl font-bold mb-6 text-white text-center">
         🏆 Leaderboard
       </h2>
 
