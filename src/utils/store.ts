@@ -8,6 +8,7 @@ import {
   updateDoc,
   onSnapshot,
   setDoc,
+  increment
 } from "firebase/firestore";
 import BrainrotList, { Meme } from "../utils/brainrotList";
 
@@ -64,7 +65,7 @@ export const useMemeStore = create<MemeStore>((set, get) => ({
     if (!current) return;
 
     await updateDoc(memeRef, {
-      likes: current.likes + 1,
+       likes: increment(1),
     });
   },
 }));

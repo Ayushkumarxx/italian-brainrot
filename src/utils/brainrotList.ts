@@ -28,6 +28,13 @@ import img27 from '../assets/png/img-27.png';
 import img28 from '../assets/png/img-28.png';
 import img29 from '../assets/png/img-29.png';
 import img30 from '../assets/png/img-30.png';
+import img31 from '../assets/webp/img-31.webp';
+import img32 from '../assets/webp/img-32.webp';
+import img33 from '../assets/webp/img-33.webp';
+import img34 from '../assets/webp/img-34.webp';
+import img35 from '../assets/webp/img-35.webp';
+import img36 from '../assets/webp/img-36.webp';
+
 
 // Map the images to an object for easy reference by id
 export const memeImages = {
@@ -61,15 +68,22 @@ export const memeImages = {
   28: img28,
   29: img29,
   30: img30,
+  31: img31,
+  32: img32,
+  33: img33,
+  34: img34,
+  35: img35,
+  36: img36
 };
 
-// Convert memeImages object to an array of Meme objects
+// Define Meme interface
 export interface Meme {
   id: number;
   name: string;
   likes: number;
 }
 
+// Convert memeImages object to an array of Meme objects
 const memeList: Meme[] = Object.keys(memeImages).map((key) => {
   const id = Number(key); 
   return {
