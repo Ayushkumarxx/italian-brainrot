@@ -72,7 +72,7 @@ const Versus: React.FC = () => {
   const isTie = meme1Votes === meme2Votes;
 
   return (
-    <div className="w-full md:w-[80%] gap-2 mx-auto flex justify-between items-center max-sm:flex-col py-10 mb-10">
+    <div className="w-full md:w-[80%] gap-4 mx-auto flex justify-between items-center max-sm:flex-col py-10 mb-10">
       {/* Show loading spinner if data is being fetched */}
       {isLoading ? (
         <div className="flex justify-center items-center h-[300px]">
