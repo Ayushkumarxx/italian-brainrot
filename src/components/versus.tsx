@@ -90,7 +90,7 @@ const Versus: React.FC = () => {
           onClick={() => handleVote(0)}
           whileTap={{ scale: 0.95 }}
           animate={{ scale: 1 }}
-          className={`relative w-[200px] sm:w-[250px] h-[200px] sm:h-[250px] rounded-xl overflow-hidden cursor-pointer border-4 ${
+          className={`relative w-[95%] sm:w-[250px] h-[200px] sm:h-[250px] rounded-xl overflow-hidden cursor-pointer border-4 ${
             !isTie && meme1Votes > meme2Votes
               ? "border-green-400"
               : "border-neutral-700"
@@ -158,7 +158,7 @@ const Versus: React.FC = () => {
           onClick={() => handleVote(1)}
           whileTap={{ scale: 0.95 }}
           animate={{ scale: 1 }}
-          className={`relative w-[200px] sm:w-[250px] h-[200px] sm:h-[250px] rounded-xl overflow-hidden cursor-pointer border-4 ${
+          className={`relative w-[95%] sm:w-[250px] h-[200px] sm:h-[250px] rounded-xl overflow-hidden cursor-pointer border-4 ${
             !isTie && meme2Votes > meme1Votes
               ? "border-green-400"
               : "border-neutral-700"
