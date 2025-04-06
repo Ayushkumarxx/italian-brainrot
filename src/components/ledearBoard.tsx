@@ -19,7 +19,7 @@ const Leaderboard: React.FC = () => {
   const currentRank = userIndex !== -1 ? userIndex + 1 : "10+";
 
   return (
-    <div className="p-4 mx-auto text-white bg-[#0a0a0a] min-h-screen max-w-[900px]">
+    <div className="p-4 mx-auto text-white bg-[#0a0a0a]  max-w-[900px]">
       <h2 className="text-3xl font-bold mb-6 text-white text-center sm:text-2xl">
         🏆 Leaderboard
       </h2>
