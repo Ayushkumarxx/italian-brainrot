@@ -82,7 +82,7 @@ const Leaderboard: React.FC = () => {
       {/* Current User Card */}
       {currentUser && (
         <div className="mt-8 bg-[#1e1e1e] p-5 rounded-xl border border-[#333] text-white shadow-inner max-sm:p-4">
-          <h3 className="font-semibold text-lg mb-2 text-blue-300">You</h3>
+          <h3 className="font-semibold text-lg mb-2 text-blue-300">You  #{currentRank} </h3>
 
           <motion.p
             key={String(currentRank) + "-" + currentUser.totalLikes}
@@ -91,7 +91,7 @@ const Leaderboard: React.FC = () => {
             transition={{ duration: 0.3 }}
             className="text-sm text-gray-300"
           >
-            #{currentRank} — {currentUser.username} —{" "}
+         {currentUser.username} —{" "}
             <span className="text-white font-bold">{currentUser.totalLikes}</span> Likes
           </motion.p>
 
