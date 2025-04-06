@@ -69,10 +69,15 @@ const Versus: React.FC = () => {
 
   const meme1 = memes[0];
   const meme2 = memes[1];
-  const meme1Votes = meme1 ? meme1.likes + (tempLikes[meme1.id] || 0) : 0;
-  const meme2Votes = meme2 ? meme2.likes + (tempLikes[meme2.id] || 0) : 0;
-  const totalVotes = meme1Votes + meme2Votes || 1;
-  const isTie = meme1Votes === meme2Votes;
+  const meme1Votes = meme1 ? (meme1.likes + (tempLikes[meme1.id] || 0)) : 0;
+const meme2Votes = meme2 ? (meme2.likes + (tempLikes[meme2.id] || 0)) : 0;
+const totalVotes = meme1Votes + meme2Votes;
+
+// Avoid division by zero when both votes are 0
+const meme1Percentage = totalVotes > 0 ? ((meme1Votes / totalVotes) * 100).toFixed(1) : "0.0";
+const meme2Percentage = totalVotes > 0 ? ((meme2Votes / totalVotes) * 100).toFixed(1) : "0.0";
+
+const isTie = meme1Votes === meme2Votes;
 
   return (
     <div className="w-full md:w-[80%] gap-1  mx-auto flex justify-between items-center  py-10 mb-10">
@@ -106,7 +111,7 @@ const Versus: React.FC = () => {
           />
           <div className="absolute bottom-0 w-full h-24 bg-gradient-to-t from-black to-transparent p-2 flex flex-col items-center justify-end">
             <p className="font-bold text-white text-lg max-sm:text-sm">
-              {((meme1Votes / totalVotes) * 100).toFixed(1)}% Votes
+               {meme1Percentage}% Votes
             </p>
           </div>
 
@@ -175,7 +180,7 @@ const Versus: React.FC = () => {
 
           <div className="absolute bottom-0 w-full h-24 bg-gradient-to-t from-black to-transparent p-2 flex flex-col items-center justify-end">
             <p className="font-bold text-white text-lg max-sm:text-sm">
-              {((meme2Votes / totalVotes) * 100).toFixed(1)}% Votes
+                {meme2Percentage}% Votes
             </p>
           </div>
 
