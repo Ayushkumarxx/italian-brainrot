@@ -47,6 +47,17 @@ const Home: React.FC = () => {
     return () => clearInterval(idleChecker);
   }, []);
 
+  // useEffect(() => {
+  //   const name = localStorage.getItem("username");
+  //   if (!name) {
+  //     const username = prompt("Enter your name:");
+  //     if (username) {
+  //       localStorage.setItem("username", username.trim());
+  //     }
+  //   }
+  // }, []);
+  
+
   useEffect(() => {
     if (memes.length > 0 && !hasSortedInitially.current) {
       sortAndSetMemes(memes);
@@ -127,7 +138,7 @@ const Home: React.FC = () => {
 
               if (i === 0) {
                 borderStyle =
-                  "border-4 border-transparent bg-gradient-to-br from-yellow-400 to-amber-300 p-[2px]";
+                  "border-4 border-transparent bg-gradient-to-br from-yellow-400 to-amber-300 ";
                 shadow = "shadow-lg shadow-yellow-400/30";
                 badge = (
                   <div className="absolute top-2 left-2 bg-yellow-500 text-black text-xs px-2 py-1 rounded-full font-bold shadow-md">
@@ -136,7 +147,7 @@ const Home: React.FC = () => {
                 );
               } else if (i === 1) {
                 borderStyle =
-                  "border-4 border-transparent bg-gradient-to-br from-gray-300 to-blue-200 p-[2px]";
+                  "border-4 border-transparent bg-gradient-to-br from-gray-300 to-blue-200";
                 shadow = "shadow-md shadow-blue-300/30";
                 badge = (
                   <div className="absolute top-2 left-2 bg-blue-300 text-black text-xs px-2 py-1 rounded-full font-bold shadow-md">
@@ -145,7 +156,7 @@ const Home: React.FC = () => {
                 );
               } else if (i === 2) {
                 borderStyle =
-                  "border-4 border-transparent bg-gradient-to-br from-orange-400 to-amber-600 p-[2px]";
+                  "border-4 border-transparent bg-gradient-to-br from-orange-400 to-amber-600";
                 shadow = "shadow-md shadow-orange-400/30";
                 badge = (
                   <div className="absolute top-2 left-2 bg-amber-500 text-black text-xs px-2 py-1 rounded-full font-bold shadow-md">
