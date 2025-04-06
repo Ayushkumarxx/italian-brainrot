@@ -78,7 +78,7 @@ const Versus: React.FC = () => {
     <div className="w-full md:w-[80%] gap-1  mx-auto flex justify-between items-center  py-10 mb-10">
       {/* Show loading spinner if data is being fetched */}
       {isLoading ? (
-        <div className="flex justify-center items-center h-[300px]">
+        <div className="flex w-full justify-center items-center h-[200px]">
           <motion.div
             className="w-8 h-8 rounded-full bg-white"
             animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
