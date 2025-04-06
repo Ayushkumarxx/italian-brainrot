@@ -17,7 +17,11 @@ interface MemeStore {
   fetchMemes: () => void;
   likeMeme: (id: number) => void;
 }
-
+interface UserState {
+  username: string | null;
+  setUsername: (name: string) => void;
+  loadUsername: () => void;
+}
 export const useMemeStore = create<MemeStore>((set, get) => ({
   memes: [],
 
@@ -67,5 +71,22 @@ export const useMemeStore = create<MemeStore>((set, get) => ({
     await updateDoc(memeRef, {
        likes: increment(1),
     });
+  },
+}));
+
+
+export const useUserStore = create<UserState>((set) => ({
+  username: null,
+
+  setUsername: (name: string) => {
+    localStorage.setItem("username", name);
+    set({ username: name });
+  },
+
+  loadUsername: () => {
+    const storedName = localStorage.getItem("username");
+    if (storedName) {
+      set({ username: storedName });
+    }
   },
 }));

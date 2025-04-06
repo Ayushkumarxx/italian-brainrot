@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useMemeStore } from "../utils/store";
+import { useMemeStore, useUserStore } from "../utils/store";
 import { FiChevronRight } from "react-icons/fi";
 import Exports from "../utils/export";
 import { Meme, memeImages } from "../utils/brainrotList";
@@ -14,12 +14,14 @@ interface PlusOneAnimation {
 
 const Home: React.FC = () => {
   const { memes, fetchMemes, likeMeme } = useMemeStore();
+  const username = useUserStore((state) => state.username);
   const [sortedMemes, setSortedMemes] = useState<Meme[]>([]);
   const [plusOnes, setPlusOnes] = useState<Record<number, PlusOneAnimation[]>>(
     {}
   );
   const [tempLikes, setTempLikes] = useState<Record<number, number>>({});
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
 
   const lastInteraction = useRef<number>(Date.now());
   const hasSortedInitially = useRef(false);
@@ -47,15 +49,7 @@ const Home: React.FC = () => {
     return () => clearInterval(idleChecker);
   }, []);
 
-  // useEffect(() => {
-  //   const name = localStorage.getItem("username");
-  //   if (!name) {
-  //     const username = prompt("Enter your name:");
-  //     if (username) {
-  //       localStorage.setItem("username", username.trim());
-  //     }
-  //   }
-  // }, []);
+
   
 
   useEffect(() => {
@@ -102,11 +96,13 @@ const Home: React.FC = () => {
 
   return (
     <>
+    <Exports.components.userPromt />
       <Exports.components.navbar />
       <main className="max-w-[850px] mx-auto pt-10 px-4 text-white text-sm">
         {/* Date Navigation */}
         <div className="flex items-center text-base max-sm:text-sm">
-          Today's date
+          Hello {username ? username.charAt(0).toUpperCase() + username.slice(1) : "Guest"}
+
           <FiChevronRight className="mx-2" />
           <span>{new Date().toLocaleDateString()}</span>
         </div>
@@ -114,7 +110,7 @@ const Home: React.FC = () => {
         {/* Title Section */}
         <h1 className="mt-2 text-3xl font-bold max-sm:text-2xl">Vote Now</h1>
         <p className="text-neutral-400 max-sm:text-xs">
-          ~ Click your favorite brainrot
+          ~ Click to vote your favorite italian brainrot
         </p>
 
         {/* Loading Spinner */}
