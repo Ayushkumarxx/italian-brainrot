@@ -134,7 +134,6 @@ export const useUserStore = create<UserState>((set) => ({
       { merge: true }
     );
 
-    alert("Welcome, " + name + "! Your user ID is: " + uid);
   },
 
   loadUsername: () => {
