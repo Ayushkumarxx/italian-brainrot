@@ -229,6 +229,7 @@ const Home: React.FC = () => {
                 );
               })}
             </motion.div>
+            <div className="w-[95%] h-[1px] bg-neutral-700 mx-auto my-10"></div>
             <Exports.components.leaderboard />
           </>
         )}
