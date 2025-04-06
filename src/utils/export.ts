@@ -3,6 +3,7 @@ import Home from "../pages/home";
 //*components
 import Navbar from "../components/navbar";
 import UsernamePrompt from "../components/userPromt";
+import Leaderboard from "../components/ledearBoard";
 //* images
 import chips from "../assets/png/chips.png";
 
@@ -19,6 +20,7 @@ let Exports: Exp = {
   components: {
     navbar: Navbar,
     userPromt: UsernamePrompt,
+    leaderboard: Leaderboard,
   },
   images: {
     chips: chips,

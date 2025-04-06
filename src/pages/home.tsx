@@ -123,6 +123,7 @@ const Home: React.FC = () => {
             />
           </div>
         ) : (
+          <> 
           <motion.div
             layout
             className="flex flex-wrap justify-center gap-8 max-md:gap-2.5 mt-10 mb-10"
@@ -221,7 +222,10 @@ const Home: React.FC = () => {
               );
             })}
           </motion.div>
+               <Exports.components.leaderboard /></>
         )}
+
+
       </main>
     </>
   );
