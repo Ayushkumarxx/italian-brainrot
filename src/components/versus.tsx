@@ -75,7 +75,7 @@ const Versus: React.FC = () => {
   const isTie = meme1Votes === meme2Votes;
 
   return (
-    <div className="w-full md:w-[80%]  mx-auto flex justify-between items-center  py-10 mb-10">
+    <div className="w-full md:w-[80%] gap-1  mx-auto flex justify-between items-center  py-10 mb-10">
       {/* Show loading spinner if data is being fetched */}
       {isLoading ? (
         <div className="flex justify-center items-center h-[300px]">
@@ -93,7 +93,7 @@ const Versus: React.FC = () => {
           onClick={() => handleVote(0)}
           whileTap={{ scale: 0.95 }}
           animate={{ scale: 1 }}
-          className={`relative w-[155px] sm:w-[250px] h-[155px] sm:h-[250px] rounded-xl overflow-hidden cursor-pointer border-4 ${
+          className={`relative w-[150px] sm:w-[250px] h-[150px] sm:h-[250px] rounded-xl overflow-hidden cursor-pointer border-4 ${
             !isTie && meme1Votes > meme2Votes
               ? "border-green-400"
               : "border-neutral-700"
@@ -161,7 +161,7 @@ const Versus: React.FC = () => {
           onClick={() => handleVote(1)}
           whileTap={{ scale: 0.95 }}
           animate={{ scale: 1 }}
-          className={`relative w-[155px] sm:w-[250px] h-[155px] sm:h-[250px] rounded-xl overflow-hidden cursor-pointer border-4 ${
+          className={`relative w-[150px] sm:w-[250px] h-[150px] sm:h-[250px] rounded-xl overflow-hidden cursor-pointer border-4 ${
             !isTie && meme2Votes > meme1Votes
               ? "border-green-400"
               : "border-neutral-700"
