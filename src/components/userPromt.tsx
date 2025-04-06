@@ -18,7 +18,7 @@ const UsernamePrompt: React.FC = () => {
   if (username) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-50">
+    <div className="fixed inset-0 flex items-center justify-center bg-black/80 backdrop-blur-sm z-50">
     <div className="bg-[#0a0a0a] p-6 rounded-2xl shadow-2xl w-[90%] md:w-full max-w-sm animate-fadeIn border-4 border-neutral-700">
 
       <h2 className="text-2xl font-semibold text-center text-white mb-2">Hey there!</h2>
