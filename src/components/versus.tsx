@@ -105,7 +105,7 @@ const Versus: React.FC = () => {
             className="w-full h-full object-cover"
           />
           <div className="absolute bottom-0 w-full h-24 bg-gradient-to-t from-black to-transparent p-2 flex flex-col items-center justify-end">
-            <p className="font-bold text-white text-lg max-sm:text-base">
+            <p className="font-bold text-white text-lg max-sm:text-sm">
               {((meme1Votes / totalVotes) * 100).toFixed(1)}% Votes
             </p>
           </div>
@@ -174,7 +174,7 @@ const Versus: React.FC = () => {
           />
 
           <div className="absolute bottom-0 w-full h-24 bg-gradient-to-t from-black to-transparent p-2 flex flex-col items-center justify-end">
-            <p className="font-bold text-white text-lg max-sm:text-base">
+            <p className="font-bold text-white text-lg max-sm:text-sm">
               {((meme2Votes / totalVotes) * 100).toFixed(1)}% Votes
             </p>
           </div>
