@@ -4,6 +4,7 @@ import Home from "../pages/home";
 import Navbar from "../components/navbar";
 import UsernamePrompt from "../components/userPromt";
 import Leaderboard from "../components/ledearBoard";
+import Versus from "../components/versus";
 //* images
 import chips from "../assets/png/chips.png";
 
@@ -21,6 +22,7 @@ let Exports: Exp = {
     navbar: Navbar,
     userPromt: UsernamePrompt,
     leaderboard: Leaderboard,
+    versus: Versus,
   },
   images: {
     chips: chips,

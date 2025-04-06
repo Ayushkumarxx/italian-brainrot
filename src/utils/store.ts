@@ -43,6 +43,60 @@ interface LeaderboardState {
   currentUser: UserData | null;
   fetchLeaderboard: () => Promise<void>;
 }
+
+export interface VersusData {
+  id: string;
+  id1: number;
+  like1: number;
+  id2: number;
+  like2: number;
+}
+
+interface VersusState {
+  versus: VersusData | null; // A single VersusData object or null
+  fetchVersus: () => void;
+  voteMeme: (id: number) => void; // Local voting only, no backend update
+}
+
+export const useVersusStore = create<VersusState>((set) => ({
+  versus: null,
+  
+  fetchVersus: async () => {
+    // Reference to the document we're watching
+    const versusRef = doc(db, "versus", "versusdata");
+    
+    // Set up real-time listener
+    onSnapshot(versusRef, (snapshot) => {
+      if (snapshot.exists()) {
+        const data = snapshot.data();
+        
+        const versusData: VersusData = {
+          id: snapshot.id,
+          id1: data.id1,
+          like1: data.like1,
+          id2: data.id2,
+          like2: data.like2,
+        };
+        
+        // Update state with real-time data
+        set({ versus: versusData });
+      } else {
+        console.error("Versus data not found");
+      }
+    });
+  },
+  
+  voteMeme: (id: number) => {
+    const versusRef = doc(db, "versus", "versusdata");
+    updateDoc(versusRef, {
+      [`like${id}`]: increment(1),
+    }).catch(error => {
+      console.error("Error updating like count:", error);
+    });
+  },
+}));
+
+
 export const useMemeStore = create<MemeStore>((set, get) => ({
   memes: [],
 
