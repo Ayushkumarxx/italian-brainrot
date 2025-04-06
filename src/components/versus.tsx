@@ -19,7 +19,7 @@ const Versus: React.FC = () => {
     const init = async () => {
       setIsLoading(true); // Set loading to true while fetching data
       await fetchVersus();
-      setIsLoading(false); // Set loading to false once the data is fetched
+      // Set loading to false once the data is fetched
     };
     init();
   }, [fetchVersus]);
@@ -30,6 +30,9 @@ const Versus: React.FC = () => {
         { id: versus.id1, likes: versus.like1 },
         { id: versus.id2, likes: versus.like2 },
       ]);
+    if (isLoading){
+      setIsLoading(false); 
+       }
     }
   }, [versus]);
 
